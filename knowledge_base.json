@@ -1,0 +1,46 @@
+{
+  "facts": {
+    "gpa_above_3_5": "GPA Above 3.5",
+    "gpa_between_3_and_3_49": "GPA Between 3.0 and 3.49",
+    "gpa_below_3": "GPA Below 3.0",
+    "attendance_above_80": "Attendance Above 80%",
+    "attendance_below_80": "Attendance Below 80%",
+    "no_disciplinary_cases": "No Disciplinary Cases",
+    "has_disciplinary_cases": "Has Disciplinary Cases",
+    "completed_prerequisites": "Completed Prerequisite Courses",
+    "has_outstanding_fees": "Has Outstanding Fees",
+    "no_outstanding_fees": "No Outstanding Fees"
+  },
+  "rules": [
+    {
+      "name": "Scholarship Rule",
+      "conditions": ["gpa_above_3_5", "attendance_above_80", "no_disciplinary_cases"],
+      "conclusion": "Eligible for Scholarship"
+    },
+    {
+      "name": "Graduation Rule",
+      "conditions": ["gpa_above_3_5", "completed_prerequisites", "no_outstanding_fees"],
+      "conclusion": "Eligible for Graduation"
+    },
+    {
+      "name": "Graduation Rule (GPA 3.0-3.49)",
+      "conditions": ["gpa_between_3_and_3_49", "completed_prerequisites", "no_outstanding_fees"],
+      "conclusion": "Eligible for Graduation"
+    },
+    {
+      "name": "Probation Rule",
+      "conditions": ["gpa_below_3"],
+      "conclusion": "Academic Probation"
+    },
+    {
+      "name": "Registration Block Rule",
+      "conditions": ["has_outstanding_fees"],
+      "conclusion": "Registration Blocked"
+    },
+    {
+      "name": "Dean's List Rule",
+      "conditions": ["gpa_above_3_5", "attendance_above_80"],
+      "conclusion": "Dean's List Candidate"
+    }
+  ]
+}
